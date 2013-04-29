@@ -1,3 +1,9 @@
 // Alan Chen & Dhaval Patel
-Sup dhaval
-Youre a fagget ( from pranav)
+public class Friends{
+
+    public static void main(String[] args)
+    {
+        
+    }
+  
+}
