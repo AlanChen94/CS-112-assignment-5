@@ -16,22 +16,19 @@ public class Graph {
 	public Graph(String graphFile){
 		graph = new ArrayList<Vertices>();
 		access = new HashMap<String, Integer>();
-		try {
-			buildGraph(graphFile);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		buildGraph(graphFile);		
 	}
 	
-	public void buildGraph(String docsFile) throws FileNotFoundException{
+	public void buildGraph(String docsFile){
 		Scanner sc = null;
-
-		try {
+		try
+		{
 			sc = new Scanner(new File(docsFile));
-		} catch (FileNotFoundException e) {
+		}catch (FileNotFoundException e)
+		{
 			System.out.println("File not found!");
+			System.exit(0);
 		}
-
 		int counter = Integer.parseInt(sc.nextLine());
 		while(counter != 0){
 			String text = sc.nextLine();
@@ -41,7 +38,9 @@ public class Graph {
 			}else
 				person = new Vertices(text.substring(0, text.indexOf('|')), 'y', text.substring(text.indexOf('y')+2));
 			graph.add(person);
-			System.out.println(person);
+
+			// Output names -- For debugging
+			//System.out.println(person);
 			access.put(person.name, graph.indexOf(person));
 			counter--;
 		}while(sc.hasNext()){
