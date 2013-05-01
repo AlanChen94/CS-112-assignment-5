@@ -24,7 +24,14 @@ public class Graph {
 	}
 	
 	public void buildGraph(String docsFile) throws FileNotFoundException{
-		Scanner sc = new Scanner(new File(docsFile));
+		Scanner sc = null;
+
+		try {
+			sc = new Scanner(new File(docsFile));
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+		}
+
 		int counter = Integer.parseInt(sc.nextLine());
 		while(counter != 0){
 			String text = sc.nextLine();

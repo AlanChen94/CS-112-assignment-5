@@ -7,33 +7,24 @@ public class Friends{
     {
         initGraph();
 
-        Scanner s = new Scanner(System.in);
-
         while(true)
         {
             menu();
         }
     }
     
-    public void initGraph()
+    public static void initGraph()
     {
-        String graph = s.nextString();
-        System.out.print("Please enter the name of the graph file : ")
-        // Try to load and create the graph
-        try 
-        {
-            Scanner s = new Scanner(System.in);   
-            graph = s.nextLine();
-            Graph g = new Graph(graph);
-        }
-        catch (FileNotFoundException e)
-        {
-            System.out.println("Error: File not found");
-        }
+        Scanner s = new Scanner(System.in);
+        System.out.print("Please enter the name of the graph file : ");
+        String graph = s.nextLine();
+        // Try to load and create the graph  
+         Graph g = new Graph(graph);
+  
 
     }
 
-    public void menu()
+    public static void menu()
     {
         System.out.println("Friendship Graph : Please choose an option.");
         System.out.println("(A) Students at a school");
@@ -42,6 +33,4 @@ public class Friends{
         System.out.println("(D) Connectors");
         System.out.println("(Q) Quit");
     }
-
-
 }
