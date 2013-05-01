@@ -15,6 +15,6 @@ public class Vertices {
 	}
 	
 	public String toString(){
-		return name + " " + school + " " + school;
+		return name + " " + school + " " + schoolname;
 	}
 }
