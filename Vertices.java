@@ -14,4 +14,7 @@ public class Vertices {
 		
 	}
 	
+	public string toString(){
+		return name + " " + school + " " + school;
+	}
 }
