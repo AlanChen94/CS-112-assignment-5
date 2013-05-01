@@ -12,10 +12,6 @@ public class Friends{
         while(true)
         {
             menu();
-
-
-            System.output.println("Do you want to continue? y/n");
-
         }
     }
     
@@ -23,21 +19,28 @@ public class Friends{
     {
         String graph = s.nextString();
         System.out.print("Please enter the name of the graph file : ")
+        // Try to load and create the graph
         try 
         {
             Scanner s = new Scanner(System.in);   
-            graph = s.nextString();
+            graph = s.nextLine();
+            Graph g = new Graph(graph);
         }
         catch (FileNotFoundException e)
         {
             System.out.println("Error: File not found");
         }
-        Graph g = new Graph(graph);
+
     }
 
     public void menu()
     {
-
+        System.out.println("Friendship Graph : Please choose an option.");
+        System.out.println("(A) Students at a school");
+        System.out.println("(B) Shortest intro chain");
+        System.out.println("(C) Cliques at a school");
+        System.out.println("(D) Connectors");
+        System.out.println("(Q) Quit");
     }
 
 
