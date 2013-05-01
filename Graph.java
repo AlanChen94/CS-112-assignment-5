@@ -13,9 +13,10 @@ public class Graph {
 		return graph.size();
 	}
 	
-	public Graph(){
+	public Graph(String graphFile){
 		graph = new ArrayList<Vertices>();
 		access = new HashMap<String, Integer>();
+		buildGraph(graphFile);
 	}
 	
 	public void buildGraph(String docsFile) throws FileNotFoundException{
