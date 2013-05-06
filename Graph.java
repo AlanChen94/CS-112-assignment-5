@@ -19,6 +19,11 @@ public class Graph {
 		buildGraph(graphFile);		
 	}
 	
+	public Graph(){
+		graph = new ArrayList<Vertices>();
+		access = new HashMap<String, Integer>();	
+	}
+	
 	public void buildGraph(String docsFile){
 		Scanner sc = null;
 		try
@@ -55,6 +60,37 @@ public class Graph {
  			temp2.next = null;
  			graph.get(index1).next = temp2;
 		}
+	}
+	
+	public static Graph createSubGraph(Graph g, String school)
+	{
+		
+	}
+	
+	public ArrayList<Graph> dfsTraversal()
+	{
+		boolean[] visited = new boolean[graph.size()];
+		ArrayList<Graph> gr = new ArrayList<Graph>();
+		for (int i = 0 ; i < vertices.size() ; i++)
+		{
+			printDfs(i, visited);
+			Graph subGraph = new Graph();
+			Graph compliment = new Graph();
+			for(int x = 0; x < visited.length; x++) {
+				if(visited[x]) {
+					subGraph.graph.add(vertices.get(x));
+					subGraph.access.put(vertices.get(x).name, vertices.get(x));
+				} else {
+					compliment.graph.add(vertices.get(x));
+					compliment.access.put(vertices.get(x).name, vertices.get(x));
+				}
+			}
+
+			gr.add(subGraph);
+			gr.addAll(compliment.dfsTraversal());
+			return gr;
+		}
+		return gr; 
 	}
 }
 
