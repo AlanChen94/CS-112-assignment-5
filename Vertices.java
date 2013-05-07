@@ -22,4 +22,8 @@ public class Vertices {
 	{
 		return name;
 	}
+
+	public void print() {
+		System.out.println(name);
+	}
 }
