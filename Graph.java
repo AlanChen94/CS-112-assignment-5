@@ -73,13 +73,13 @@ public class Graph {
 		}
 		ArrayList<Vertices> SubGraph = new ArrayList<Vertices>();
 		for (int i = 0; i < vertices.size(); i++) {
-			if (vertices.get(i).schoolname == schoolname) {
+			if (vertices.get(i).schoolname.equals(schoolname)) {
 				Vertices temp = vertices.get(i);
 				Vertices temp1 = vertices.get(i);
 				temp.next = null;
 				SubGraph.add(temp);
 				while (temp1.next != null) {
-					if (temp1.next.schoolname == schoolname) {
+					if (temp1.next.schoolname.equals(schoolname)) {
 						Vertices tempNeighbor = temp1.next;
 						tempNeighbor.next = null;
 						SubGraph.get(access.get(temp)).next = tempNeighbor;
