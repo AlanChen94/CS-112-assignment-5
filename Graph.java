@@ -112,4 +112,30 @@ public class Graph {
 		}
 		return gr;
 	}
+	
+	public ArrayList<Graph> dfsTraversal(String name1, String name2){
+		boolean[]visited = new boolean[graph.size()];
+		ArrayList<Graph> gr = new ArrayList<Graph>();
+		Graph subGraph = new Graph();
+		Graph compliment = new Graph();
+		Vertices holder = graph.get(access.get(name1));
+		for(Vertices temp = graph.get(access.get(name1)); temp != null; temp = temp.next){
+			if(visited[access.get(name1)]){
+				subGraph.graph.add(graph.get(access.get(name1)));
+				subGraph.access.put(name1, graph.indexOf(temp));
+				if(name1.equals(name2)){
+					break;
+				}
+			}else{
+				compliment.graph.add(graph.get(access.get(name1)));
+				compliment.access.put(name1, graph.indexOf(temp));
+				visited[access.get(name1)] = true;
+				if(name1.equals(name2)){
+					break;
+				}
+			}
+		}gr.add(subGraph);
+		gr.addAll(compliment.dfsTraversal(holder.next.name, name2));
+		return gr;
+	}
 }
